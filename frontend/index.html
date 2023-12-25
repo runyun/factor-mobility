@@ -12,11 +12,89 @@
 
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    <link rel="stylesheet" href="styles/larger.css">
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer> 
+    <header>
+        <a href="index.html"><img src="images/logo.webp"></a>
+        <h1>Factor Mobility</h1>
+        <button id="hamburger">☰</button>
+        <nav>
+            <a href="#">Home</a>
+            <a href="company.html">Company</a>
+            <a href="proccess.html">Proccess</a>
+            <a href="production.html">Production</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <button id="darkmodeSwitcher">☾</button>
+        </nav>
+    </header>
+    <main>
+        <div id="hero">
+            <!-- Photo by Tima Miroshnichenko: https://www.pexels.com/photo/black-and-gray-electronic-device-5846127/ -->
+            <img src="images/electronic-machine.webp">
+            <section>
+                <h1>Hola</h1>
+                <h2>Welcome! We are looking forward to forging something</h2>
+                <a href="contact.html"><button action="contact-us.html">Contact now</button></a>
+            </section>
+        </div>
+        <hr>
+        <div>
+            <h2>Production Spotlight</h2>
+            <div id="slides">
+                <div class="slideContainer">
+                    <section>
+                        <img src="http://placekitten.com/400/400">
+                        <h3>Cute</h3>
+                    </section>
+                    <section>
+                        <img src="http://placekitten.com/402/400">
+                        <h3>Cute</h3>
+                    </section>
+                    <section>
+                        <img src="http://placekitten.com/401/400">
+                        <h3>Cute</h3>
+                    </section>
+                    <section>
+                        <img src="http://placekitten.com/408/400">
+                        <h3>So Cute</h3>
+                    </section>
+                    <section>
+                        <img src="http://placekitten.com/406/400">
+                        <h3>So Cute</h3>
+                    </section>
+                    <section>
+                        <img src="http://placekitten.com/405/400">
+                        <h3>So Cute</h3>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="company">
+            <h2>Company</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae odio praesentium cum voluptatum ducimus libero consectetur natus impedit quaerat minima, doloribus, perspiciatis iste dolore dignissimos illum magnam ipsam commodi excepturi.</p>
+        </div>
+        <hr>
+        <div id="location">
+            <h2>Loaction</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58337.623570736316!2d120.5908231!3d23.95685165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346936ef369aca59%3A0xfdfe864e58757723!2sYuanlin%20City%2C%20Changhua%20County%2C%20510!5e0!3m2!1sen!2stw!4v1703308822692!5m2!1sen!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div>
+                <h3>Location info</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, aliquam minima distinctio quidem officia ipsam voluptates necessitatibus vel corporis ipsa ut molestias ullam in eligendi, eum asperiores? Magnam, nesciunt deleniti.</p>
+            </div>
+        </div>
+        </main>
+    <footer>
+        <div>
+            <p>&copy;<span id="copyrightYear"></span></p>
+            <p>Factor Mobility</p>
+            <p>yo@factor.com</p>
+        </div>
+        <a href="https://www.linkedin.com/company/factor-mobility-inc/" target="_blank"><img src="images/linkedIn.png"></a>
+    </footer> 
     <script src="scripts/base.js"></script>
 </body>
 </html>

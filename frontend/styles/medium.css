@@ -59,4 +59,8 @@
     form input, textarea {
         width: 400px;
     }
+
+    form button {
+        justify-self: initial;
+    }
 }

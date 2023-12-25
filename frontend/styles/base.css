@@ -205,6 +205,7 @@ form label:not(:first-child), form button {
 
 form button {
     width: 300px;
+    justify-self: center;
 }
 
 form textarea {

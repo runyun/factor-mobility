@@ -245,3 +245,34 @@ form textarea {
     border: none;
     font-size: xx-large;
 }
+
+#productDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#productDropdown button{
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 0;
+    min-width: 80px;
+}
+
+#productDropdown:hover #productSub{
+    display: block;
+    position: relative;
+}
+
+#productSub {
+    display: none;
+    position: absolute;
+    width: 140%;
+    background-color: var(--primary-color);
+    border-radius: 1rem;
+}
+
+#productSub a{
+    display: block;
+    margin: 1rem;
+}

@@ -63,4 +63,8 @@
     form button {
         justify-self: initial;
     }
+
+    #productDropdown:hover #productSub{
+        position: absolute;
+    }
 }

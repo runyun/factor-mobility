@@ -42,8 +42,9 @@ iframe {
     width: 90%;
 }
 
-q {
-    font-size: large;
+#quote {
+    margin-top: 1rem;
+    font-size: xx-large;
     font-family: var(--heading-font);
     color: var(--secondary-color);
     font-style: italic;

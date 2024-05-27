@@ -5,18 +5,18 @@ function renderYear(){
 
 const companyMail = 'Info@factormobility.com';
 function displayMail(){
-    let mail = document.querySelector('#mail');
+    let mail = document.querySelectorAll('.mail');
     
     if(mail) {
-        mail.textContent = companyMail;
+        mail.forEach(x => x.textContent = companyMail)
     }
 }
 
 const companyAddress= 'No.82, Ln. 207, Sec. 2, Liuqiao Rd. Yuanlin City, Changhua County 510037 Taiwan (R.O.C.)';
 function displayAddress() {
-    let address = document.querySelector('#address');
+    let address = document.querySelectorAll('.address');
     if(address) {
-        address.textContent = companyAddress;
+        address.forEach(x => x.textContent = companyAddress)
     }
 }
 

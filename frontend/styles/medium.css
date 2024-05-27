@@ -16,7 +16,14 @@
     }
 
     footer{
+        display: grid;
+        margin-top: 5rem;
         grid-template-columns: 1fr 200px;
+    }
+
+    footer div {
+        flex-direction: row;
+        gap: 3rem;
     }
 
     #location {

@@ -25,6 +25,18 @@ main {
     margin: auto;
 }
 
+p {
+    line-height: 2rem;
+}
+
+p:not(footer p)::first-letter {
+    font-size: 1.5rem;
+}
+
+footer p {
+    line-height: 0rem;
+}
+
 h1, h2 {
     font-family: var(--heading-font);
 }
@@ -71,14 +83,12 @@ header,footer {
 }
 
 footer{
-    display: grid;
     grid-template-columns: 1fr;
-    margin-top: 5rem;
 }
 
 footer div {
     display: flex;
-    gap: 3rem;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
 }
@@ -150,6 +160,8 @@ img:not(header footer), iframe{
     grid-column: 1/2;
     margin: 1rem auto 0 auto;
     text-align: center;
+    position: relative;
+    top: 4rem;
 }
 
 #hero button {
@@ -288,4 +300,8 @@ form textarea {
 #productSub a{
     display: block;
     margin: 1rem;
+}
+
+h3 {
+    font-style: italic;
 }

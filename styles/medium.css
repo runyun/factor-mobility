@@ -74,4 +74,13 @@
     #productDropdown:hover #productSub{
         position: absolute;
     }
+    
+    .slideshow-container .button {
+        display: block;
+    }
+
+    .slideshow-container img {
+        width: 70%;
+    }
+
 }

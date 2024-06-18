@@ -6,7 +6,7 @@ window.onload = async function () {
         products.images.forEach(image =>{
             let product = {}
             product.images = image;
-            if(product.classification == 'Extrusion'){
+            if(products.classification == 'Extrusion'){
                 product.url = "./product-extrusion.html";
             }else{
                 product.url = "./product-forging.html";

@@ -1,9 +1,10 @@
 class Slideshow {
-  constructor(data, parentElement) {
+  constructor(data, parentElement, isHome = false) {
     this.data = data;
     this.currentIndex = 0;
     this.intervalId = null;
     this.parentElement = parentElement;
+    this.isHome = isHome;
 
     this.setupSlideshow();
     this.showFirstSlide();
@@ -27,27 +28,28 @@ class Slideshow {
     // Slide
     const slideContainer = document.createElement('div');
 
-    products.images.forEach(productImage => {
-      const slideDiv = document.createElement('div');
-      slideDiv.classList.add('slides', 'fade');
+    if(this.isHome){
+      this.buildHomeSlide(products, slideContainer);
 
-      const img = document.createElement('img');
-      img.src = `/images/${productImage}.jpg`;
+    }else{
+      this.buildSlide(products, slideContainer)
+    }
+    slideShowContainer.appendChild(slideContainer);
 
-      slideDiv.appendChild(img);
-      slideContainer.appendChild(slideDiv);
-    });
+    //overlay
+    const overlay = this.buildOverLay();
+    slideShowContainer.innerHTML += overlay;
 
     // Dot
+    const dotCount = this.isHome? products.length :products.images.length;
     const dotContainer = document.createElement('div');
-    for (let index = 0; index < products.images.length; index++) {
+    for (let index = 0; index < dotCount; index++) {
       const dot = document.createElement('span');
       dot.classList.add('dot');
       dotContainer.appendChild(dot);
     }
-
-    slideShowContainer.appendChild(slideContainer);
     slideShowContainer.appendChild(dotContainer);
+
 
     // Buttons
     this.prevButton = document.createElement('button');
@@ -63,7 +65,6 @@ class Slideshow {
     slideShowContainer.appendChild(this.prevButton);
     slideShowContainer.appendChild(this.nextButton);
 
-
     this.parentElement.appendChild(slideShowContainer);
   }
 
@@ -76,6 +77,49 @@ class Slideshow {
       slides[0].style.display = "block";
       dots[0].classList.add('active');
     }
+  }
+
+  buildHomeSlide(products, slideContainer){
+    products.forEach(product => {
+      const slideDiv = document.createElement('div');
+      slideDiv.classList.add('slides', 'fade');
+
+      const img = document.createElement('img');
+      img.src = `/images/${product.images}.jpg`;
+
+      const link = document.createElement('a');
+      link.href = product.url;
+
+      link.appendChild(img)
+
+      slideDiv.appendChild(link);
+      slideContainer.appendChild(slideDiv);
+    });
+  }
+
+
+  buildSlide(products, slideContainer){
+    products.images.forEach(productImage => {
+      const slideDiv = document.createElement('div');
+      slideDiv.classList.add('slides', 'fade');
+
+      const img = document.createElement('img');
+      img.src = `/images/${productImage}.jpg`;
+      img.onclick = ()=> {this.focusImage(img.src)};
+
+      slideDiv.appendChild(img);
+      slideContainer.appendChild(slideDiv);
+    });
+  }
+
+  buildOverLay(){
+    const overlay = `
+      <div class="fullscreen-overlay" id="fullscreenOverlay">
+      <button class="close-button" id="closeButton">X</button>
+      <img id="fullscreenImage" src="" alt="Fullscreen Image"/>
+      </div>`;
+    
+    return overlay;
   }
 
   startSlideshow() {
@@ -151,6 +195,13 @@ class Slideshow {
       }
     });
   }
+
+  focusImage(src) {
+    const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    fullscreenImage.src = src;
+    fullscreenOverlay.style.display = 'flex';
+  }
 }
 
 async function readJsonByClassification(classification) {
@@ -184,4 +235,22 @@ async function readJsonObjOther() {
     console.error('Error fetching or parsing JSON file:', error);
   }
 }
+
+async function readAllProducts() {
+  try {
+    const response = await fetch('/data/products.json');
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.products.filter(products => products.classification == 'Extrusion' || products.classification == 'Forging');
+
+
+  } catch (error) {
+    console.error('Error fetching or parsing JSON file:', error);
+  }
+}
+
 

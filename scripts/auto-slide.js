@@ -36,9 +36,6 @@ class Slideshow {
     }
     slideShowContainer.appendChild(slideContainer);
 
-    //overlay
-    const overlay = this.buildOverLay();
-    slideShowContainer.innerHTML += overlay;
 
     // Dot
     const dotCount = this.isHome? products.length :products.images.length;
@@ -105,22 +102,14 @@ class Slideshow {
 
       const img = document.createElement('img');
       img.src = `/images/${productImage}.jpg`;
-      img.onclick = ()=> {this.focusImage(img.src)};
+      img.addEventListener('click', ()=> focusImage(img.src))
 
       slideDiv.appendChild(img);
       slideContainer.appendChild(slideDiv);
     });
   }
 
-  buildOverLay(){
-    const overlay = `
-      <div class="fullscreen-overlay" id="fullscreenOverlay">
-      <button class="close-button" id="closeButton">X</button>
-      <img id="fullscreenImage" src="" alt="Fullscreen Image"/>
-      </div>`;
-    
-    return overlay;
-  }
+
 
   startSlideshow() {
     this.intervalId = setInterval(() => this.nextImage(), 2000);
@@ -195,13 +184,6 @@ class Slideshow {
       }
     });
   }
-
-  focusImage(src) {
-    const fullscreenOverlay = document.getElementById('fullscreenOverlay');
-    const fullscreenImage = document.getElementById('fullscreenImage');
-    fullscreenImage.src = src;
-    fullscreenOverlay.style.display = 'flex';
-  }
 }
 
 async function readJsonByClassification(classification) {
@@ -252,5 +234,4 @@ async function readAllProducts() {
     console.error('Error fetching or parsing JSON file:', error);
   }
 }
-
 

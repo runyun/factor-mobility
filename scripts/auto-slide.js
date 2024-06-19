@@ -235,3 +235,22 @@ async function readAllProducts() {
   }
 }
 
+function scrollToHash() {
+  if (window.location.hash) {
+      var element = document.querySelector(window.location.hash);
+      if (element) {
+          setTimeout(function() {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100); // Adjust the delay if necessary
+      }
+  }
+}
+
+// For jumping to section by URL
+document.addEventListener("DOMContentLoaded", function() {
+  scrollToHash();
+});
+
+window.addEventListener("hashchange", function() {
+  scrollToHash();
+});

@@ -11,9 +11,12 @@ window.onload = async function () {
             }else{
                 product.url = "./product-forging.html";
             }
+            product.url += "#" + products.htmlId;
             returnData.push(product);
         })
     });
-  
-    new Slideshow(returnData, document.querySelector('#productsSection'), true);
+
+    let messedData = returnData.sort(() => Math.random() - 0.5);
+
+    new Slideshow(messedData, document.querySelector('#productsSection'), true);
 };  

@@ -36,4 +36,4 @@ function setupOverylay() {
   document.getElementById('closeButton').addEventListener('click', hideFullscreenImage);
 }
 
-// setupOverylay();
+setupOverylay();

@@ -4,37 +4,44 @@
         {
             "name": "Part/Component for Bicycle",
             "images": ["extrusion1","extrusion2","extrusion3","extrusion4"],
-            "classification": "Extrusion"
+            "classification": "Extrusion",
+            "htmlId": "extrusionSection"
         },
         {
             "name": "Part/Component for Safe Lock",
             "images": ["safelock1","safelock2","safelock3"],
-            "classification": "Extrusion"
+            "classification": "Extrusion",
+            "htmlId": "safelockSection"
         },
         {
             "name": "Part/Component for Medical Assistant Device(Rehacare)",
             "images": ["rehacare1","rehacare2"],
-            "classification": "Extrusion"
+            "classification": "Extrusion",
+            "htmlId": "rehacareSection"
         },
         {
             "name": "Part/Component for Bicycle, E-bike and Motorbike Industry",
             "images": ["forge1","forge2","forge3","forge4"],
-            "classification": "Forging"
+            "classification": "Forging",
+            "htmlId": "forgingSection"
         },
         {
             "name": "Automatic Sawing Machine",
             "images": ["autoSaw1","autoSaw2"],
-            "classification": "Equipment"
+            "classification": "Equipment",
+            "htmlId":""
         },
         {
             "name": "CNC Machine",
             "images": ["CNC1","CNC2","CNC3"],
-            "classification": "Equipment"
+            "classification": "Equipment",
+            "htmlId":""
         },
         {
             "name": "QC Instruments",
             "images": ["rockswell","2D","CMM"],
-            "classification": "Equipment"
+            "classification": "Equipment",
+            "htmlId":""
         }
     ],
     "Other": {
